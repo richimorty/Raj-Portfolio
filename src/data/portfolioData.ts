@@ -15,7 +15,7 @@ export const portfolioProjects: Project[] = [
     thumbnail: '/Jello.jpg',
     category: '2D Animation',
     images: [
-      'https://via.placeholder.com/800x600/FF6347/FFFFFF?text=Jello+Animation+Still+1',
+      '/Jello.jpg', // Updated to use the Jello.jpg image
     ],
     videos: [
       'https://jumpshare.com/embed/pTIjes6Z97Y2BsLCebg3'
