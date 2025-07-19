@@ -12,10 +12,10 @@ export const portfolioProjects: Project[] = [
   {
     id: 'jello-animation',
     title: 'Jello',
-    thumbnail: '/Jello.jpg',
+    thumbnail: 'https://i.ibb.co/zHxx8NgL/Jello.jpg', // Updated thumbnail
     category: '2D Animation',
     images: [
-      '/Jello.jpg', // Updated to use the Jello.jpg image
+      '/Jello.jpg',
     ],
     videos: [
       'https://jumpshare.com/embed/pTIjes6Z97Y2BsLCebg3'
@@ -25,7 +25,7 @@ export const portfolioProjects: Project[] = [
   {
     id: 'demons-pain',
     title: 'Demon\'s Pain',
-    thumbnail: '/Demon\'s pain.jpg',
+    thumbnail: 'https://i.ibb.co/C5d0j7Rb/Demon-s-pain.jpg', // Updated thumbnail
     category: '2D Animation',
     images: [
       'https://via.placeholder.com/800x600/4682B4/FFFFFF?text=Demon%27s+Pain+Still+1',
@@ -38,7 +38,7 @@ export const portfolioProjects: Project[] = [
   {
     id: 'skinwalker-animation',
     title: 'Skinwalker',
-    thumbnail: '/Skinwalker.jpg',
+    thumbnail: 'https://i.ibb.co/n8nYLvKZ/Skinwalker.jpg', // Updated thumbnail
     category: '2D Animation',
     images: [
       'https://via.placeholder.com/800x600/8B0000/FFFFFF?text=Skinwalker+Still+1',
@@ -51,7 +51,7 @@ export const portfolioProjects: Project[] = [
   {
     id: 'orin-animation',
     title: 'Orin',
-    thumbnail: '/Orin.jpg',
+    thumbnail: 'https://i.ibb.co/N6WLkTTh/Orin.jpg', // Updated thumbnail
     category: '2D Animation',
     images: [
       'https://via.placeholder.com/800x600/2F4F4F/FFFFFF?text=Orin+Still+1',
