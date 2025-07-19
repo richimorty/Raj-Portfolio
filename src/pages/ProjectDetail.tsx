@@ -1,52 +1,65 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { portfolioProjects } from '../data/portfolioData';
+import { portfolioProjects } from '@/data/portfolioData';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft } from 'lucide-react';
+import { ChevronLeft } from 'lucide-react';
 
 const ProjectDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const project = portfolioProjects.find((p) => p.id === id);
+  const project = portfolioProjects.find(p => p.id === id);
 
   if (!project) {
     return (
-      <div className="container mx-auto p-4 text-center">
-        <h1 className="text-3xl font-bold mb-4">Project Not Found</h1>
-        <p className="text-lg mb-6">The project you are looking for does not exist.</p>
+      <div className="min-h-screen flex flex-col items-center justify-center bg-background text-foreground p-4">
+        <h1 className="text-4xl font-bold mb-4">Project Not Found</h1>
+        <p className="text-xl text-muted-foreground mb-6">The project you are looking for does not exist.</p>
         <Link to="/portfolio">
-          <Button>Back to Portfolio</Button>
+          <Button className="flex items-center gap-2">
+            <ChevronLeft className="h-4 w-4" /> Back to Portfolio
+          </Button>
         </Link>
       </div>
     );
   }
 
   return (
-    <div className="container mx-auto p-4 md:p-8 lg:p-12">
-      <div className="mb-6">
+    <div className="container mx-auto py-12 px-4 animate-in fade-in duration-500">
+      <div className="mb-8">
         <Link to="/portfolio">
-          <Button variant="ghost" className="flex items-center text-lg">
-            <ArrowLeft className="mr-2 h-5 w-5" /> Back to Portfolio
+          <Button variant="ghost" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors duration-200">
+            <ChevronLeft className="h-4 w-4" /> Back to Portfolio
           </Button>
         </Link>
       </div>
 
-      <h1 className="text-4xl md:text-5xl font-extrabold mb-4 text-gray-900 dark:text-gray-100">
-        {project.title}
-      </h1>
-      <p className="text-xl text-gray-600 dark:text-gray-400 mb-6">
-        Category: <span className="font-semibold">{project.category}</span>
-      </p>
+      <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">{project.title}</h1>
+      <p className="text-lg text-muted-foreground mb-8">{project.category}</p>
 
-      <div className="prose dark:prose-invert max-w-none mb-8">
-        <p className="text-lg leading-relaxed">{project.description}</p>
+      <div className="grid grid-cols-1 gap-8 mb-12">
+        {project.images.map((src, index) => (
+          <img
+            key={index}
+            src={src}
+            alt={`${project.title} image ${index + 1}`}
+            className="w-full h-auto rounded-lg shadow-lg object-cover animate-in fade-in duration-700"
+          />
+        ))}
+        {project.videos && project.videos.map((src, index) => (
+          <div key={`video-${index}`} className="w-full aspect-video rounded-lg shadow-lg overflow-hidden animate-in fade-in duration-700">
+            <iframe
+              src={src}
+              title={`${project.title} video ${index + 1}`}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="w-full h-full"
+            ></iframe>
+          </div>
+        ))}
       </div>
 
-      {/* Image and Video display sections removed */}
-
-      <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700">
-        <Link to="/portfolio">
-          <Button className="w-full md:w-auto">Back to Portfolio</Button>
-        </Link>
+      <div className="max-w-3xl mx-auto text-lg text-foreground leading-relaxed">
+        <p>{project.description}</p>
       </div>
     </div>
   );
