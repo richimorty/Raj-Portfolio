@@ -1,60 +1,40 @@
-import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
+import { Button } from './ui/button';
 import { Menu } from 'lucide-react';
-import { useIsMobile } from '@/hooks/use-mobile';
-import MobileMenu from './MobileMenu';
-import { cn } from '@/lib/utils';
+import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
 
-const Header: React.FC = () => {
-  const isMobile = useIsMobile();
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
-  const location = useLocation();
-
-  const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'Portfolio', path: '/portfolio' },
-    { name: 'About', path: '/about' },
-    { name: 'Contact', path: '/contact' },
-  ];
-
+const Header = () => {
   return (
-    <header className="sticky top-0 z-40 w-full bg-background/80 backdrop-blur-sm border-b border-border py-4 px-4 md:px-8 shadow-sm">
+    <header className="bg-background py-4 shadow-sm">
       <div className="container mx-auto flex items-center justify-between">
         <Link to="/" className="text-2xl font-bold text-primary hover:text-primary-foreground transition-colors duration-200">
-          [Your Name]
+          Limon Ahmed
         </Link>
 
-        {isMobile ? (
-          <>
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsMobileMenuOpen(true)}
-              className="text-foreground hover:text-primary transition-colors duration-200"
-            >
-              <Menu className="h-6 w-6" />
-              <span className="sr-only">Open menu</span>
-            </Button>
-            <MobileMenu isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)} />
-          </>
-        ) : (
-          <nav className="flex space-x-6">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                to={link.path}
-                className={cn(
-                  "text-lg font-medium text-foreground hover:text-primary transition-colors duration-200 relative",
-                  location.pathname === link.path && "text-primary after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-primary after:scale-x-100 after:transition-transform after:duration-300",
-                  location.pathname !== link.path && "after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-primary after:scale-x-0 hover:after:scale-x-100 after:origin-left"
-                )}
-              >
-                {link.name}
-              </Link>
-            ))}
-          </nav>
-        )}
+        <nav className="hidden md:flex space-x-6">
+          <Link to="/" className="text-foreground hover:text-primary transition-colors duration-200">Home</Link>
+          <Link to="/portfolio" className="text-foreground hover:text-primary transition-colors duration-200">Portfolio</Link>
+          <Link to="/about" className="text-foreground hover:text-primary transition-colors duration-200">About</Link>
+          <Link to="/contact" className="text-foreground hover:text-primary transition-colors duration-200">Contact</Link>
+        </nav>
+
+        <div className="md:hidden">
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon">
+                <Menu className="h-6 w-6" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right">
+              <nav className="flex flex-col space-y-4 mt-8">
+                <Link to="/" className="text-foreground hover:text-primary transition-colors duration-200">Home</Link>
+                <Link to="/portfolio" className="text-foreground hover:text-primary transition-colors duration-200">Portfolio</Link>
+                <Link to="/about" className="text-foreground hover:text-primary transition-colors duration-200">About</Link>
+                <Link to="/contact" className="text-foreground hover:text-primary transition-colors duration-200">Contact</Link>
+              </nav>
+            </SheetContent>
+          </Sheet>
+        </div>
       </div>
     </header>
   );
