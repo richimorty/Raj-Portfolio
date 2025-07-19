@@ -10,6 +10,32 @@ export interface Project {
 
 export const portfolioProjects: Project[] = [
   {
+    id: 'jello-animation',
+    title: 'Jello',
+    thumbnail: 'https://via.placeholder.com/400x300/FF6347/FFFFFF?text=Jello+Animation+Thumbnail',
+    category: '2D Animation',
+    images: [
+      'https://via.placeholder.com/800x600/FF6347/FFFFFF?text=Jello+Animation+Still+1',
+    ],
+    videos: [
+      'https://jumpshare.com/embed/pTIjes6Z97Y2BsLCebg3'
+    ],
+    description: 'A fun and bouncy 2D animation exploring the physics and movement of a jello character.',
+  },
+  {
+    id: 'demons-pain',
+    title: 'Demon\'s Pain',
+    thumbnail: 'https://via.placeholder.com/400x300/4682B4/FFFFFF?text=Demon%27s+Pain+Thumbnail',
+    category: '2D Animation',
+    images: [
+      'https://via.placeholder.com/800x600/4682B4/FFFFFF?text=Demon%27s+Pain+Still+1',
+    ],
+    videos: [
+      'https://jumpshare.com/embed/P3PthlQw5Xc6uUSpMFgH'
+    ],
+    description: 'An expressive 2D animation piece depicting the raw emotion and struggle of a demon character.',
+  },
+  {
     id: 'project-1',
     title: 'Whimsical Forest Creatures',
     thumbnail: 'https://via.placeholder.com/400x300/FFD700/FFFFFF?text=Project+1+Thumbnail',
