@@ -1,64 +1,66 @@
-import React from 'react';
+import HeroSection from '../components/HeroSection';
+import GalleryGrid from '../components/GalleryGrid';
+import { portfolioProjects } from '../data/portfolioData';
+import { Button } from '../components/ui/button';
 import { Link } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
-import GalleryGrid from '@/components/GalleryGrid';
-import { portfolioProjects } from '@/data/portfolioData';
 
-const Index: React.FC = () => {
-  const featuredProjects = portfolioProjects.slice(0, 3); // Show top 3 projects
+const Index = () => {
+  const featuredProjects = portfolioProjects.slice(0, 3); // Display first 3 projects as featured
 
   return (
-    <div className="min-h-screen flex flex-col bg-background text-foreground">
-      {/* Hero Section */}
-      <section className="relative h-[calc(100vh-80px)] flex items-center justify-center text-center p-4 overflow-hidden">
-        {/* Background image/video placeholder */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 opacity-50 animate-in fade-in duration-1000"></div>
-        <img
-          src="https://via.placeholder.com/1920x1080/E0E0E0/333333?text=Hero+Background"
-          alt="Hero Background"
-          className="absolute inset-0 w-full h-full object-cover opacity-20"
-        />
+    <div className="min-h-screen bg-background text-foreground">
+      <HeroSection />
 
-        <div className="relative z-10 max-w-3xl mx-auto animate-in slide-in-from-top-10 fade-in duration-700">
-          <h1 className="text-5xl md:text-7xl font-extrabold mb-4 leading-tight text-primary drop-shadow-lg">
-            [Your Name]
-          </h1>
-          <p className="text-xl md:text-2xl text-foreground mb-8 animate-in fade-in duration-1000 delay-200">
-            2D Animation & Character Designer
+      <section className="py-16 md:py-24 text-center bg-card text-card-foreground">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-primary animate-in fade-in slide-in-from-bottom-10 duration-700">
+            Welcome to My Portfolio
+          </h2>
+          <p className="text-lg md:text-xl max-w-3xl mx-auto mb-12 animate-in fade-in duration-1000 delay-200">
+            I'm Limon Ahmed Raj, a passionate 2D Animator dedicated to bringing imaginative worlds and characters to life through dynamic and expressive animation. Explore my work and see how I blend creativity with technical skill to tell compelling visual stories.
           </p>
-          <Link to="/portfolio">
-            <Button size="lg" className="text-lg px-8 py-4 rounded-full shadow-lg transition-all duration-300 hover:scale-[1.03] hover:shadow-xl animate-in zoom-in-90 duration-700 delay-400">
-              View My Portfolio
-            </Button>
-          </Link>
-        </div>
-      </section>
-
-      {/* Featured Work Section */}
-      <section className="py-16 px-4 bg-card border-t border-border">
-        <div className="container mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-foreground animate-in fade-in duration-700">Featured Work</h2>
-          <GalleryGrid projects={featuredProjects} />
-          <div className="text-center mt-12">
-            <Link to="/portfolio">
-              <Button variant="outline" size="lg" className="text-lg px-8 py-4 rounded-full transition-all duration-300 hover:scale-[1.02] hover:shadow-md animate-in zoom-in-90 duration-700 delay-200">
-                See All Projects
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <Link to="/about">
+              <Button size="lg" className="bg-primary hover:bg-primary/90 text-white font-semibold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105">
+                Learn More About Me
+              </Button>
+            </Link>
+            <Link to="/contact">
+              <Button size="lg" variant="outline" className="border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105">
+                Hire Me
               </Button>
             </Link>
           </div>
         </div>
       </section>
 
-      {/* About Section Snippet */}
-      <section className="py-16 px-4 bg-background">
-        <div className="container mx-auto text-center max-w-3xl animate-in fade-in duration-700">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">A Bit About Me</h2>
-          <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-            I'm a passionate 2D animation and character designer dedicated to bringing unique stories and vibrant personalities to life. With a keen eye for detail and a love for dynamic movement, I craft compelling visuals that resonate with audiences.
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-5xl font-bold text-center mb-12 text-primary animate-in fade-in slide-in-from-bottom-10 duration-700">
+            Featured Projects
+          </h2>
+          <GalleryGrid projects={featuredProjects} />
+          <div className="text-center mt-12">
+            <Link to="/portfolio">
+              <Button size="lg" className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105">
+                View All Projects
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-24 bg-primary text-primary-foreground text-center">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-5xl font-bold mb-6 animate-in fade-in slide-in-from-bottom-10 duration-700">
+            Ready to bring your ideas to life?
+          </h2>
+          <p className="text-lg md:text-xl max-w-3xl mx-auto mb-12 animate-in fade-in duration-1000 delay-200">
+            Whether you have a specific project in mind or just want to chat about animation, feel free to reach out.
           </p>
-          <Link to="/about">
-            <Button variant="link" className="text-lg text-primary hover:text-primary-foreground transition-colors duration-200 animate-in fade-in duration-700 delay-200">
-              Learn More About My Journey & Skills &rarr;
+          <Link to="/contact">
+            <Button size="lg" variant="outline" className="border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary font-semibold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105">
+              Contact Me
             </Button>
           </Link>
         </div>
