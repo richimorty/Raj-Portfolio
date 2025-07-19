@@ -12,7 +12,7 @@ export const portfolioProjects: Project[] = [
   {
     id: 'jello-animation',
     title: 'Jello',
-    thumbnail: 'https://via.placeholder.com/400x300/FF6347/FFFFFF?text=Jello+Animation+Thumbnail',
+    thumbnail: 'https://assets.dyad.ai/Jello.jpg',
     category: '2D Animation',
     images: [
       'https://via.placeholder.com/800x600/FF6347/FFFFFF?text=Jello+Animation+Still+1',
@@ -25,7 +25,7 @@ export const portfolioProjects: Project[] = [
   {
     id: 'demons-pain',
     title: 'Demon\'s Pain',
-    thumbnail: 'https://via.placeholder.com/400x300/4682B4/FFFFFF?text=Demon%27s+Pain+Thumbnail',
+    thumbnail: 'https://assets.dyad.ai/Demon%27s%20pain.jpg',
     category: '2D Animation',
     images: [
       'https://via.placeholder.com/800x600/4682B4/FFFFFF?text=Demon%27s+Pain+Still+1',
@@ -38,7 +38,7 @@ export const portfolioProjects: Project[] = [
   {
     id: 'skinwalker-animation',
     title: 'Skinwalker',
-    thumbnail: 'https://via.placeholder.com/400x300/8B0000/FFFFFF?text=Skinwalker+Thumbnail',
+    thumbnail: 'https://assets.dyad.ai/Skinwalker.jpg',
     category: '2D Animation',
     images: [
       'https://via.placeholder.com/800x600/8B0000/FFFFFF?text=Skinwalker+Still+1',
@@ -51,7 +51,7 @@ export const portfolioProjects: Project[] = [
   {
     id: 'orin-animation',
     title: 'Orin',
-    thumbnail: 'https://via.placeholder.com/400x300/2F4F4F/FFFFFF?text=Orin+Thumbnail',
+    thumbnail: 'https://assets.dyad.ai/Orin.jpg',
     category: '2D Animation',
     images: [
       'https://via.placeholder.com/800x600/2F4F4F/FFFFFF?text=Orin+Still+1',
