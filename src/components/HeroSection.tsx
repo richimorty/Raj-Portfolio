@@ -19,7 +19,7 @@ const HeroSection = () => {
             </Button>
           </Link>
           <Link to="/contact">
-            <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-primary font-semibold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105">
+            <Button size="lg" variant="outline" className="bg-white text-black border-2 border-white hover:bg-black hover:text-white font-semibold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105">
               Get In Touch
             </Button>
           </Link>
