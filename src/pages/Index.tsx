@@ -59,7 +59,7 @@ const Index = () => {
             Whether you have a specific project in mind or just want to chat about animation, feel free to reach out.
           </p>
           <Link to="/contact">
-            <Button size="lg" variant="outline" className="border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary font-semibold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105">
+            <Button size="lg" variant="outline" className="bg-white text-black border-2 border-white hover:bg-black hover:text-white font-semibold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105">
               Contact Me
             </Button>
           </Link>
